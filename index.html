@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bryan Pham — Data Scientist</title>
+  <meta name="description" content="Bryan Pham — Data Science student at UC Riverside specializing in machine learning, fairness-aware AI, and data visualization." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="src/style.css" />
+</head>
+<body>
+
+  <!-- ── Navigation ─────────────────────────────────────── -->
+  <nav>
+    <a href="#hero" class="nav-logo">BP</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── Hero ───────────────────────────────────────────── -->
+  <section id="hero">
+    <canvas id="particle-canvas"></canvas>
+    <div class="hero-glow"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Available for internships &amp; opportunities
+      </div>
+
+      <h1 class="hero-name">Bryan Pham</h1>
+
+      <p class="hero-role-line">
+        <span class="typed-text"></span><span class="cursor"></span>
+        &nbsp;·&nbsp; UC Riverside
+      </p>
+
+      <p class="hero-desc">
+        Building end-to-end machine learning systems that are not only accurate,
+        but fair, interpretable, and ready for the real world.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact"  class="btn btn-outline">Get In Touch</a>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ── About ──────────────────────────────────────────── -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="about-avatar-wrap reveal">
+        <div class="about-avatar">👨‍💻</div>
+        <div class="about-card">
+          <div class="about-card-dot"></div>
+          <span>Open to work</span>
+        </div>
+      </div>
+
+      <div class="about-text reveal">
+        <div class="section-label">About Me</div>
+        <h2 class="section-title">Turning data into<br /><span>decisions</span></h2>
+
+        <p style="margin-top:1.25rem">
+          I'm a Data Science major at the University of California, Riverside,
+          with a focus on machine learning, algorithmic fairness, and model
+          interpretability. I care about building systems that perform well on
+          metrics <em>and</em> hold up under ethical scrutiny.
+        </p>
+        <p>
+          My coursework spans statistical learning, database systems, and applied
+          ML, with hands-on experience in bias detection (LIME, SHAP), fairness
+          metrics aligned with CFPB and ECOA standards, and production-style
+          Python pipelines.
+        </p>
+
+        <div class="about-tags">
+          <span class="tag">UC Riverside</span>
+          <span class="tag">Data Science</span>
+          <span class="tag">GPA: 3.X</span>
+          <span class="tag">bpham082@ucr.edu</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Skills ─────────────────────────────────────────── -->
+  <section id="skills">
+    <div class="skills-inner">
+      <div class="reveal" style="text-align:center">
+        <div class="section-label">What I Work With</div>
+        <h2 class="section-title">Skills &amp; <span>Technologies</span></h2>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill-card reveal">
+          <div class="skill-icon">🐍</div>
+          <div class="skill-card-header">
+            <span class="skill-name">Python</span>
+            <span class="skill-pct">92%</span>
+          </div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" data-pct="92"></div></div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon">🤖</div>
+          <div class="skill-card-header">
+            <span class="skill-name">Machine Learning (scikit-learn)</span>
+            <span class="skill-pct">88%</span>
+          </div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" data-pct="88"></div></div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon">📊</div>
+          <div class="skill-card-header">
+            <span class="skill-name">Data Analysis (pandas, numpy)</span>
+            <span class="skill-pct">90%</span>
+          </div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" data-pct="90"></div></div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon">🗄️</div>
+          <div class="skill-card-header">
+            <span class="skill-name">SQL &amp; Databases</span>
+            <span class="skill-pct">80%</span>
+          </div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" data-pct="80"></div></div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon">📈</div>
+          <div class="skill-card-header">
+            <span class="skill-name">Data Visualization (Plotly, Seaborn)</span>
+            <span class="skill-pct">85%</span>
+          </div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" data-pct="85"></div></div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon">⚖️</div>
+          <div class="skill-card-header">
+            <span class="skill-name">Algorithmic Fairness (SHAP, LIME)</span>
+            <span class="skill-pct">83%</span>
+          </div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" data-pct="83"></div></div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon">🌐</div>
+          <div class="skill-card-header">
+            <span class="skill-name">Streamlit / Dash Dashboards</span>
+            <span class="skill-pct">78%</span>
+          </div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" data-pct="78"></div></div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon">🔧</div>
+          <div class="skill-card-header">
+            <span class="skill-name">Git &amp; Software Engineering</span>
+            <span class="skill-pct">75%</span>
+          </div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" data-pct="75"></div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Projects ───────────────────────────────────────── -->
+  <section id="projects">
+    <div class="reveal" style="text-align:center">
+      <div class="section-label">What I've Built</div>
+      <h2 class="section-title">Featured <span>Projects</span></h2>
+    </div>
+
+    <div class="projects-grid">
+
+      <div class="project-card reveal">
+        <div class="project-header">
+          <div class="project-icon">💳</div>
+          <div class="project-links">
+            <a href="https://github.com/Bryanpham004/credit-risk-ml" target="_blank" class="project-link">GitHub ↗</a>
+          </div>
+        </div>
+        <div class="project-title">Credit Risk &amp; Fairness Analysis Pipeline</div>
+        <p class="project-desc">
+          End-to-end ML pipeline for credit default prediction with a full
+          algorithmic fairness audit. Compares four classifiers, computes
+          demographic parity and equalized odds across gender and race groups,
+          and surfaces SHAP-based explanations via an interactive Streamlit dashboard.
+        </p>
+        <div class="project-tech">
+          <span class="tech-badge">Python</span>
+          <span class="tech-badge">scikit-learn</span>
+          <span class="tech-badge">SHAP</span>
+          <span class="tech-badge">Streamlit</span>
+          <span class="tech-badge">Fairness Metrics</span>
+          <span class="tech-badge">Plotly</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-header">
+          <div class="project-icon">⚖️</div>
+          <div class="project-links">
+            <a href="#" class="project-link">Course Work ↗</a>
+          </div>
+        </div>
+        <div class="project-title">Bias Mitigation in Machine Learning</div>
+        <p class="project-desc">
+          Research project for CS108/STAT108 examining bias in supervised learning
+          models. Applied pre-processing (reweighing), in-processing (adversarial
+          debiasing), and post-processing (equalized odds) mitigation strategies.
+          Evaluated trade-offs between accuracy and fairness.
+        </p>
+        <div class="project-tech">
+          <span class="tech-badge">Python</span>
+          <span class="tech-badge">LIME</span>
+          <span class="tech-badge">SHAP</span>
+          <span class="tech-badge">fairlearn</span>
+          <span class="tech-badge">pandas</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-header">
+          <div class="project-icon">🗄️</div>
+          <div class="project-links">
+            <a href="#" class="project-link">Course Work ↗</a>
+          </div>
+        </div>
+        <div class="project-title">Database Systems &amp; SQL Engineering</div>
+        <p class="project-desc">
+          Designed and implemented relational schemas, complex multi-table queries,
+          and stored procedures for CS166. Covered indexing strategies, transaction
+          management, normalization, and query optimization.
+        </p>
+        <div class="project-tech">
+          <span class="tech-badge">SQL</span>
+          <span class="tech-badge">PostgreSQL</span>
+          <span class="tech-badge">Schema Design</span>
+          <span class="tech-badge">Query Optimization</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Contact ────────────────────────────────────────── -->
+  <section id="contact">
+    <div class="contact-inner reveal">
+      <div class="section-label">Let's Connect</div>
+      <h2 class="section-title">Get In <span>Touch</span></h2>
+      <p class="contact-desc">
+        I'm actively looking for data science internships and entry-level
+        opportunities. Whether you have a question, a project idea, or just
+        want to say hello — my inbox is always open.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:bpham082@ucr.edu" class="contact-link">
+          <span>✉️</span> bpham082@ucr.edu
+        </a>
+        <a href="https://github.com/Bryanpham004" target="_blank" class="contact-link">
+          <span>🐙</span> GitHub
+        </a>
+        <a href="https://linkedin.com/in/bryanpham" target="_blank" class="contact-link">
+          <span>💼</span> LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────────────────── -->
+  <footer>
+    <p>© 2025 Bryan Pham · Built with vanilla HTML, CSS &amp; JS</p>
+  </footer>
+
+  <script src="src/script.js"></script>
+</body>
+</html>
