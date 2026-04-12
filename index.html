@@ -8,11 +8,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" href="src/style.css" />
 </head>
 <body>
 
-  <!-- ── Navigation ─────────────────────────────────────── -->
+  <!-- ── Full-page particle canvas (fixed behind everything) ── -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- ── Navigation ─────────────────────────────────────────── -->
   <nav>
     <a href="#hero" class="nav-logo">BP</a>
     <ul class="nav-links">
@@ -23,11 +27,9 @@
     </ul>
   </nav>
 
-  <!-- ── Hero ───────────────────────────────────────────── -->
+  <!-- ── Hero ───────────────────────────────────────────────── -->
   <section id="hero">
-    <canvas id="particle-canvas"></canvas>
     <div class="hero-glow"></div>
-
     <div class="hero-content">
       <div class="hero-badge">
         <span class="badge-dot"></span>
@@ -38,7 +40,7 @@
 
       <p class="hero-role-line">
         <span class="typed-text"></span><span class="cursor"></span>
-        &nbsp;·&nbsp; UC Riverside
+        &nbsp;&mdash;&nbsp; UC Riverside
       </p>
 
       <p class="hero-desc">
@@ -47,8 +49,12 @@
       </p>
 
       <div class="hero-cta">
-        <a href="#projects" class="btn btn-primary">View My Work</a>
-        <a href="#contact"  class="btn btn-outline">Get In Touch</a>
+        <a href="#projects" class="btn btn-primary">
+          <i class="fa-solid fa-diagram-project"></i> View My Work
+        </a>
+        <a href="#contact" class="btn btn-outline">
+          <i class="fa-regular fa-envelope"></i> Get In Touch
+        </a>
       </div>
     </div>
 
@@ -58,14 +64,17 @@
     </div>
   </section>
 
-  <!-- ── About ──────────────────────────────────────────── -->
+  <!-- ── About ──────────────────────────────────────────────── -->
   <section id="about">
     <div class="about-grid">
       <div class="about-avatar-wrap reveal">
-        <div class="about-avatar">👨‍💻</div>
+        <div class="about-avatar">
+          <i class="fa-solid fa-user-tie"></i>
+        </div>
         <div class="about-card">
-          <div class="about-card-dot"></div>
-          <span>Open to work</span>
+          <span class="about-card-dot"></span>
+          <i class="fa-solid fa-circle-check" style="color:#22c55e;font-size:0.85rem"></i>
+          Open to work
         </div>
       </div>
 
@@ -74,40 +83,40 @@
         <h2 class="section-title">Turning data into<br /><span>decisions</span></h2>
 
         <p style="margin-top:1.25rem">
-          I'm a Data Science major at the University of California, Riverside,
-          with a focus on machine learning, algorithmic fairness, and model
-          interpretability. I care about building systems that perform well on
-          metrics <em>and</em> hold up under ethical scrutiny.
+          I am a Data Science major at the University of California, Riverside,
+          with a concentration in machine learning, algorithmic fairness, and model
+          interpretability. I am committed to building systems that perform well on
+          quantitative metrics while upholding rigorous ethical standards.
         </p>
         <p>
           My coursework spans statistical learning, database systems, and applied
-          ML, with hands-on experience in bias detection (LIME, SHAP), fairness
-          metrics aligned with CFPB and ECOA standards, and production-style
+          machine learning, with hands-on experience in bias detection (LIME, SHAP),
+          fairness metrics aligned with CFPB and ECOA standards, and production-grade
           Python pipelines.
         </p>
 
         <div class="about-tags">
-          <span class="tag">UC Riverside</span>
-          <span class="tag">Data Science</span>
-          <span class="tag">GPA: 3.X</span>
-          <span class="tag">bryanpham004@gmail.com</span>
+          <span class="tag"><i class="fa-solid fa-graduation-cap"></i> UC Riverside</span>
+          <span class="tag"><i class="fa-solid fa-chart-line"></i> Data Science</span>
+          <span class="tag"><i class="fa-solid fa-location-dot"></i> California</span>
+          <span class="tag"><i class="fa-regular fa-envelope"></i> bryanpham004@gmail.com</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── Skills ─────────────────────────────────────────── -->
+  <!-- ── Skills ─────────────────────────────────────────────── -->
   <section id="skills">
     <div class="skills-inner">
       <div class="reveal" style="text-align:center">
-        <div class="section-label">What I Work With</div>
+        <div class="section-label">Technical Proficiency</div>
         <h2 class="section-title">Skills &amp; <span>Technologies</span></h2>
       </div>
 
       <div class="skills-grid">
 
         <div class="skill-card reveal">
-          <div class="skill-icon">🐍</div>
+          <div class="skill-icon"><i class="fa-brands fa-python"></i></div>
           <div class="skill-card-header">
             <span class="skill-name">Python</span>
             <span class="skill-pct">92%</span>
@@ -116,16 +125,16 @@
         </div>
 
         <div class="skill-card reveal">
-          <div class="skill-icon">🤖</div>
+          <div class="skill-icon"><i class="fa-solid fa-brain"></i></div>
           <div class="skill-card-header">
-            <span class="skill-name">Machine Learning (scikit-learn)</span>
+            <span class="skill-name">Machine Learning</span>
             <span class="skill-pct">88%</span>
           </div>
           <div class="skill-bar-bg"><div class="skill-bar-fill" data-pct="88"></div></div>
         </div>
 
         <div class="skill-card reveal">
-          <div class="skill-icon">📊</div>
+          <div class="skill-icon"><i class="fa-solid fa-table"></i></div>
           <div class="skill-card-header">
             <span class="skill-name">Data Analysis (pandas, numpy)</span>
             <span class="skill-pct">90%</span>
@@ -134,7 +143,7 @@
         </div>
 
         <div class="skill-card reveal">
-          <div class="skill-icon">🗄️</div>
+          <div class="skill-icon"><i class="fa-solid fa-database"></i></div>
           <div class="skill-card-header">
             <span class="skill-name">SQL &amp; Databases</span>
             <span class="skill-pct">80%</span>
@@ -143,16 +152,16 @@
         </div>
 
         <div class="skill-card reveal">
-          <div class="skill-icon">📈</div>
+          <div class="skill-icon"><i class="fa-solid fa-chart-bar"></i></div>
           <div class="skill-card-header">
-            <span class="skill-name">Data Visualization (Plotly, Seaborn)</span>
+            <span class="skill-name">Data Visualization</span>
             <span class="skill-pct">85%</span>
           </div>
           <div class="skill-bar-bg"><div class="skill-bar-fill" data-pct="85"></div></div>
         </div>
 
         <div class="skill-card reveal">
-          <div class="skill-icon">⚖️</div>
+          <div class="skill-icon"><i class="fa-solid fa-scale-balanced"></i></div>
           <div class="skill-card-header">
             <span class="skill-name">Algorithmic Fairness (SHAP, LIME)</span>
             <span class="skill-pct">83%</span>
@@ -161,16 +170,16 @@
         </div>
 
         <div class="skill-card reveal">
-          <div class="skill-icon">🌐</div>
+          <div class="skill-icon"><i class="fa-solid fa-display"></i></div>
           <div class="skill-card-header">
-            <span class="skill-name">Streamlit / Dash Dashboards</span>
+            <span class="skill-name">Streamlit / Plotly Dashboards</span>
             <span class="skill-pct">78%</span>
           </div>
           <div class="skill-bar-bg"><div class="skill-bar-fill" data-pct="78"></div></div>
         </div>
 
         <div class="skill-card reveal">
-          <div class="skill-icon">🔧</div>
+          <div class="skill-icon"><i class="fa-brands fa-git-alt"></i></div>
           <div class="skill-card-header">
             <span class="skill-name">Git &amp; Software Engineering</span>
             <span class="skill-pct">75%</span>
@@ -182,10 +191,10 @@
     </div>
   </section>
 
-  <!-- ── Projects ───────────────────────────────────────── -->
+  <!-- ── Projects ───────────────────────────────────────────── -->
   <section id="projects">
     <div class="reveal" style="text-align:center">
-      <div class="section-label">What I've Built</div>
+      <div class="section-label">Selected Work</div>
       <h2 class="section-title">Featured <span>Projects</span></h2>
     </div>
 
@@ -193,9 +202,11 @@
 
       <div class="project-card reveal">
         <div class="project-header">
-          <div class="project-icon">💳</div>
+          <div class="project-icon"><i class="fa-solid fa-shield-halved"></i></div>
           <div class="project-links">
-            <a href="https://github.com/Bryanpham004/credit-risk-ml" target="_blank" class="project-link">GitHub ↗</a>
+            <a href="https://github.com/Bryanpham004/credit-risk-ml" target="_blank" class="project-link">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
           </div>
         </div>
         <div class="project-title">Credit Risk &amp; Fairness Analysis Pipeline</div>
@@ -217,17 +228,19 @@
 
       <div class="project-card reveal">
         <div class="project-header">
-          <div class="project-icon">⚖️</div>
+          <div class="project-icon"><i class="fa-solid fa-scale-unbalanced-flip"></i></div>
           <div class="project-links">
-            <a href="#" class="project-link">Course Work ↗</a>
+            <a href="#" class="project-link">
+              <i class="fa-solid fa-book"></i> Coursework
+            </a>
           </div>
         </div>
         <div class="project-title">Bias Mitigation in Machine Learning</div>
         <p class="project-desc">
           Research project for CS108/STAT108 examining bias in supervised learning
           models. Applied pre-processing (reweighing), in-processing (adversarial
-          debiasing), and post-processing (equalized odds) mitigation strategies.
-          Evaluated trade-offs between accuracy and fairness.
+          debiasing), and post-processing (equalized odds) mitigation strategies,
+          evaluating the accuracy-fairness trade-off.
         </p>
         <div class="project-tech">
           <span class="tech-badge">Python</span>
@@ -240,16 +253,18 @@
 
       <div class="project-card reveal">
         <div class="project-header">
-          <div class="project-icon">🗄️</div>
+          <div class="project-icon"><i class="fa-solid fa-server"></i></div>
           <div class="project-links">
-            <a href="#" class="project-link">Course Work ↗</a>
+            <a href="#" class="project-link">
+              <i class="fa-solid fa-book"></i> Coursework
+            </a>
           </div>
         </div>
         <div class="project-title">Database Systems &amp; SQL Engineering</div>
         <p class="project-desc">
           Designed and implemented relational schemas, complex multi-table queries,
           and stored procedures for CS166. Covered indexing strategies, transaction
-          management, normalization, and query optimization.
+          management, normalization, and query optimization for high-volume datasets.
         </p>
         <div class="project-tech">
           <span class="tech-badge">SQL</span>
@@ -262,33 +277,33 @@
     </div>
   </section>
 
-  <!-- ── Contact ────────────────────────────────────────── -->
+  <!-- ── Contact ────────────────────────────────────────────── -->
   <section id="contact">
     <div class="contact-inner reveal">
       <div class="section-label">Let's Connect</div>
       <h2 class="section-title">Get In <span>Touch</span></h2>
       <p class="contact-desc">
-        I'm actively looking for data science internships and entry-level
-        opportunities. Whether you have a question, a project idea, or just
-        want to say hello — my inbox is always open.
+        I am actively seeking data science internships and entry-level opportunities.
+        Whether you have a question, a collaboration in mind, or would like to connect
+        over a coffee chat — I would be glad to hear from you.
       </p>
       <div class="contact-links">
         <a href="mailto:bryanpham004@gmail.com" class="contact-link">
-          <span>✉️</span> bryanpham004@gmail.com
+          <i class="fa-regular fa-envelope"></i> bryanpham004@gmail.com
         </a>
         <a href="https://github.com/Bryanpham004" target="_blank" class="contact-link">
-          <span>🐙</span> GitHub
+          <i class="fa-brands fa-github"></i> GitHub
         </a>
         <a href="https://www.linkedin.com/in/bryan-pham-5775671a3/" target="_blank" class="contact-link">
-          <span>💼</span> LinkedIn
+          <i class="fa-brands fa-linkedin"></i> LinkedIn
         </a>
       </div>
     </div>
   </section>
 
-  <!-- ── Footer ─────────────────────────────────────────── -->
+  <!-- ── Footer ─────────────────────────────────────────────── -->
   <footer>
-    <p>© 2025 Bryan Pham · Built with vanilla HTML, CSS &amp; JS</p>
+    <p>&copy; 2026 Bryan Pham &nbsp;&middot;&nbsp; Data Science, UC Riverside</p>
   </footer>
 
   <script src="src/script.js"></script>

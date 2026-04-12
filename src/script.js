@@ -4,49 +4,53 @@ window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 20);
 }, { passive: true });
 
-/* ── Particle canvas ───────────────────────────── */
+/* ── Full-page particle canvas ─────────────────── */
 (function () {
   const canvas = document.getElementById('particle-canvas');
   const ctx    = canvas.getContext('2d');
-  let W, H, particles, mouse = { x: null, y: null };
+  let W, H, particles;
+  let mouse = { x: null, y: null };
 
-  const COLORS = ['#22d3ee', '#a78bfa', '#f472b6'];
-  const COUNT  = 80;
+  const COLORS = ['#22d3ee', '#a78bfa', '#818cf8'];
+  const COUNT  = 110;
 
   function resize() {
-    W = canvas.width  = canvas.offsetWidth;
-    H = canvas.height = canvas.offsetHeight;
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
   }
 
   function rand(min, max) { return Math.random() * (max - min) + min; }
 
   class Particle {
-    reset() {
-      this.x    = rand(0, W);
-      this.y    = rand(0, H);
-      this.r    = rand(0.8, 2.5);
-      this.vx   = rand(-0.3, 0.3);
-      this.vy   = rand(-0.3, 0.3);
+    reset(fullReset) {
+      this.x     = rand(0, W);
+      this.y     = fullReset ? rand(0, H) : rand(-50, H + 50);
+      this.r     = rand(0.7, 2.2);
+      this.vx    = rand(-0.25, 0.25);
+      this.vy    = rand(-0.22, 0.22);
       this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
-      this.alpha = rand(0.3, 0.9);
-      this.da   = rand(-0.003, 0.003);
+      this.alpha = rand(0.2, 0.75);
+      this.da    = rand(-0.002, 0.002);
     }
-    constructor() { this.reset(); }
+    constructor() { this.reset(true); }
     update() {
       this.x += this.vx;
       this.y += this.vy;
       this.alpha += this.da;
-      if (this.alpha < 0.1 || this.alpha > 0.9) this.da *= -1;
-      if (this.x < 0 || this.x > W) this.vx *= -1;
-      if (this.y < 0 || this.y > H) this.vy *= -1;
+      if (this.alpha < 0.08 || this.alpha > 0.75) this.da *= -1;
+      if (this.x < -5)  this.x = W + 5;
+      if (this.x > W+5) this.x = -5;
+      if (this.y < -5)  this.y = H + 5;
+      if (this.y > H+5) this.y = -5;
 
-      // Mouse repulsion
       if (mouse.x !== null) {
-        const dx = this.x - mouse.x, dy = this.y - mouse.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 100) {
-          this.x += dx / dist * 1.5;
-          this.y += dy / dist * 1.5;
+        const dx = this.x - mouse.x;
+        const dy = this.y - mouse.y;
+        const d  = Math.sqrt(dx * dx + dy * dy);
+        if (d < 110) {
+          const force = (110 - d) / 110;
+          this.x += dx / d * force * 2;
+          this.y += dy / d * force * 2;
         }
       }
     }
@@ -66,16 +70,18 @@ window.addEventListener('scroll', () => {
   }
 
   function drawConnections() {
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
+    const len = particles.length;
+    for (let i = 0; i < len; i++) {
+      for (let j = i + 1; j < len; j++) {
         const dx = particles[i].x - particles[j].x;
         const dy = particles[i].y - particles[j].y;
-        const d  = Math.sqrt(dx * dx + dy * dy);
-        if (d < 120) {
+        const d  = dx * dx + dy * dy;
+        if (d < 13000) {  // ~114px
+          const dist = Math.sqrt(d);
           ctx.save();
-          ctx.globalAlpha = (1 - d / 120) * 0.18;
+          ctx.globalAlpha = (1 - dist / 114) * 0.14;
           ctx.strokeStyle = '#22d3ee';
-          ctx.lineWidth   = 0.6;
+          ctx.lineWidth   = 0.5;
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
@@ -93,8 +99,10 @@ window.addEventListener('scroll', () => {
     requestAnimationFrame(loop);
   }
 
-  window.addEventListener('resize', () => { resize(); initParticles(); }, { passive: true });
-  document.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; }, { passive: true });
+  window.addEventListener('resize', () => { resize(); }, { passive: true });
+  document.addEventListener('mousemove', e => {
+    mouse.x = e.clientX; mouse.y = e.clientY;
+  }, { passive: true });
   document.addEventListener('mouseleave', () => { mouse.x = null; mouse.y = null; });
 
   resize();
@@ -117,56 +125,58 @@ window.addEventListener('scroll', () => {
   function tick() {
     const word = roles[ri];
     el.textContent = deleting ? word.slice(0, ci--) : word.slice(0, ci++);
-
-    let delay = deleting ? 60 : 100;
-    if (!deleting && ci > word.length)  { delay = 1800; deleting = true; }
-    if (deleting  && ci < 0)            { deleting = false; ci = 0; ri = (ri + 1) % roles.length; delay = 300; }
+    let delay = deleting ? 55 : 95;
+    if (!deleting && ci > word.length)  { delay = 2000; deleting = true; }
+    if (deleting  && ci < 0)            { deleting = false; ci = 0; ri = (ri + 1) % roles.length; delay = 350; }
     setTimeout(tick, delay);
   }
-  setTimeout(tick, 800);
+  setTimeout(tick, 900);
 })();
 
 /* ── Scroll reveal ─────────────────────────────── */
 (function () {
-  const observer = new IntersectionObserver(
-    (entries) => entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); }
-    }),
-    { threshold: 0.12 }
+  const io = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.1 }
   );
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 })();
 
 /* ── Skill bar animation ───────────────────────── */
 (function () {
-  const observer = new IntersectionObserver(
-    (entries) => entries.forEach(e => {
+  const io = new IntersectionObserver(
+    entries => entries.forEach(e => {
       if (e.isIntersecting) {
         const fill = e.target.querySelector('.skill-bar-fill');
         if (fill) fill.style.width = fill.dataset.pct + '%';
-        observer.unobserve(e.target);
+        io.unobserve(e.target);
       }
     }),
-    { threshold: 0.3 }
+    { threshold: 0.25 }
   );
-  document.querySelectorAll('.skill-card').forEach(c => observer.observe(c));
+  document.querySelectorAll('.skill-card').forEach(c => io.observe(c));
 })();
 
-/* ── Active nav link on scroll ─────────────────── */
+/* ── Active nav highlight on scroll ───────────── */
 (function () {
   const sections = document.querySelectorAll('section[id]');
   const links    = document.querySelectorAll('.nav-links a');
   window.addEventListener('scroll', () => {
     let current = '';
     sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+      if (window.scrollY >= s.offsetTop - 130) current = s.id;
     });
     links.forEach(a => {
-      a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--cyan)' : '';
+      const active = a.getAttribute('href') === `#${current}`;
+      a.style.color = active ? 'var(--cyan)' : '';
     });
   }, { passive: true });
 })();
 
-/* ── Stagger reveal delay ──────────────────────── */
-document.querySelectorAll('.skills-grid .skill-card, .projects-grid .project-card')
-  .forEach((el, i) => el.style.transitionDelay = `${i * 0.07}s`);
+/* ── Stagger animation delays ──────────────────── */
+document.querySelectorAll('.skills-grid .skill-card').forEach((el, i) => {
+  el.style.transitionDelay = `${i * 0.06}s`;
+});
+document.querySelectorAll('.projects-grid .project-card').forEach((el, i) => {
+  el.style.transitionDelay = `${i * 0.08}s`;
+});
