@@ -3,7 +3,7 @@
 
 :root {
   --bg:        #070c18;
-  --bg-card:   rgba(13, 20, 38, 0.82);
+  --bg-card:   rgba(13, 20, 38, 0.72);
   --bg-section: rgba(7, 12, 24, 0.75);
   --bg-nav:    rgba(7, 12, 24, 0.88);
   --cyan:      #22d3ee;
@@ -198,15 +198,14 @@ nav.scrolled { box-shadow: 0 4px 40px rgba(0,0,0,0.6); }
 /* ── Sections ───────────────────────────────────────── */
 section {
   padding: clamp(4.5rem, 9vw, 7.5rem) clamp(1.5rem, 6vw, 5rem);
-  background: var(--bg-section);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(7, 12, 24, 0.55);
 }
 
-/* Alternate sections are slightly lighter for depth */
-#skills, #contact {
-  background: rgba(10, 16, 32, 0.8);
-}
+/* Hero is fully transparent — particles shine through */
+#hero { background: transparent; }
+
+/* Alternate sections slightly darker for rhythm */
+#skills, #contact { background: rgba(7, 12, 24, 0.68); }
 
 .section-label {
   font-size: 0.72rem; font-weight: 700; letter-spacing: 3.5px;
